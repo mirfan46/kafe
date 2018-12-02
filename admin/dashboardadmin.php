@@ -95,23 +95,23 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                 <i class="nav-icon icon-pie-chart"></i> Karyawan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="dashboardadmin.php?module=pelanggan">
                 <i class="nav-icon icon-pie-chart"></i> Pelanggan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="#">
                 <i class="nav-icon icon-pie-chart"></i> Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="dashboardadmin.php?module=kategori_menu">
                 <i class="nav-icon icon-pie-chart"></i> Kategori Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="dashboardadmin.php?module=meja">
                 <i class="nav-icon icon-pie-chart"></i> Meja</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="dashboardadmin.php?module=jenis_meja">
                 <i class="nav-icon icon-pie-chart"></i> Jenis Meja</a>
             </li>
             <li class="nav-item">
@@ -126,12 +126,51 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
       <?php
         if ($_GET['module'] == 'home') {
           include "module/home/home.php";
-        }if ($_GET['module'] == 'karyawan') {
+        }
+        if ($_GET['module'] == 'karyawan') {
           include "module/karyawan/list_karyawan.php";
-        }if ($_GET['module'] == 'add_karyawan') {
+        }
+        if ($_GET['module'] == 'add_karyawan') {
           include "module/karyawan/add_karyawan.php";
-        }if ($_GET['module'] == 'edit_karyawan') {
-          include "module/karyawan/edit_karyawan";
+        }
+        if ($_GET['module'] == 'edit_karyawan') {
+          include "module/karyawan/edit_karyawan.php";
+        }
+        if ($_GET['module'] == 'pelanggan') {
+          include "module/pelanggan/list_pelanggan.php";
+        }
+        if ($_GET['module'] == 'add_pelanggan') {
+          include "module/pelanggan/add_pelanggan.php";
+        }
+        if ($_GET['module'] == 'edit_pelanggan') {
+          include "module/pelanggan/edit_pelanggan.php";
+        }
+        if ($_GET['module'] == 'kategori_menu') {
+          include "module/kategori_menu/list_kategori_menu.php";
+        }
+        if ($_GET['module'] == 'add_kategori_menu') {
+          include "module/kategori_menu/add_kategori_menu.php";
+        }
+        if ($_GET['module'] == 'edit_kategori_menu') {
+          include "module/kategori_menu/edit_kategori_menu.php";
+        }
+        if ($_GET['module'] == 'jenis_meja') {
+          include "module/jenis_meja/list_jenis_meja.php";
+        }
+        if ($_GET['module'] == 'add_jenis_meja') {
+          include "module/jenis_meja/add_jenis_meja.php";
+        }
+        if ($_GET['module'] == 'edit_jenis_meja') {
+          include "module/jenis_meja/edit_jenis_meja.php";
+        }
+        if ($_GET['module'] == 'meja') {
+          include "module/meja/list_meja.php";
+        }
+        if ($_GET['module'] == 'add_meja') {
+          include "module/meja/add_meja.php";
+        }
+        if ($_GET['module'] == 'edit_meja') {
+          include "module/meja/edit_meja.php";
         }
       ?>
     </div>  
