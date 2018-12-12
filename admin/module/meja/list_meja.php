@@ -31,15 +31,15 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nomer</th>
-                          <th>Jenis</th>
+                          <th>Nomer Meja</th>
                           <th>Status</th>
+                          <th>Jenis Meja</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
                       <?php 
                       include "../lib/koneksi.php";
-                      $query_meja = mysqli_query($koneksi, "select * from meja")or die(mysqli_error());
+                      $query_meja = mysqli_query($koneksi, "SELECT * FROM meja m INNER JOIN jenis_meja jm on m.id_jenis_meja=jm.id_jenis_meja")or die(mysqli_error());
                       $nomor = 1;
                       while($meja = mysqli_fetch_array($query_meja)){
                       ?>
@@ -47,13 +47,13 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                         <tr>
                           <td><?php echo $nomor++; ?></td>
                           <td><?php echo $meja['nomer_meja']; ?></td>
-                          <td><?php echo $meja['id_jenis_meja']; ?></td>
                           <td><?php echo $meja['status_meja']; ?></td>
+                          <td><?php echo $meja['nama_jenis_meja']; ?></td>
                           <td>
-                            <a href="<?php echo $admin_url; ?>dashboardadmin.php?module=edit_karyawan&id_karyawan=<?php echo $kar['id_karyawan']; ?>"
+                            <a href="<?php echo $admin_url; ?>dashboardadmin.php?module=edit_meja&id_meja=<?php echo $meja['id_meja']; ?>"
                               <span class="badge badge-warning">Edit</span>
                             </a>
-                            <a href="<?php echo $admin_url; ?>module/karyawan/aksi_hapus.php?id_karyawan=<?php echo $kar['id_karyawan'];?>" onClick="return confirm('Anda yakin ingin menghapus data ini?')"
+                            <a href="<?php echo $admin_url; ?>module/meja/aksi_hapus.php?id_meja=<?php echo $meja['id_meja'];?>" onClick="return confirm('Anda yakin ingin menghapus data ini?')"
                               <span class="badge badge-danger">Delete</span>
                             </a>
                           </td>
