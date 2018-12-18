@@ -87,7 +87,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
             </li>
             <li class="nav-title">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html">
+              <a class="nav-link" href="dashboardadmin.php?module=pesanan">
                 <i class="nav-icon icon-pie-chart"></i> Pesanan</a>
             </li>
             <li class="nav-item">
@@ -99,7 +99,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                 <i class="nav-icon icon-pie-chart"></i> Pelanggan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="dashboardadmin.php?module=menu">
                 <i class="nav-icon icon-pie-chart"></i> Menu</a>
             </li>
             <li class="nav-item">
@@ -127,51 +127,70 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
         if ($_GET['module'] == 'home') {
           include "module/home/home.php";
         }
-        if ($_GET['module'] == 'karyawan') {
+        elseif ($_GET['module'] == 'karyawan') {
           include "module/karyawan/list_karyawan.php";
         }
-        if ($_GET['module'] == 'add_karyawan') {
+        elseif ($_GET['module'] == 'add_karyawan') {
           include "module/karyawan/add_karyawan.php";
         }
-        if ($_GET['module'] == 'edit_karyawan') {
+        elseif ($_GET['module'] == 'edit_karyawan') {
           include "module/karyawan/edit_karyawan.php";
         }
-        if ($_GET['module'] == 'pelanggan') {
+        elseif ($_GET['module'] == 'pelanggan') {
           include "module/pelanggan/list_pelanggan.php";
         }
-        if ($_GET['module'] == 'add_pelanggan') {
+        elseif ($_GET['module'] == 'add_pelanggan') {
           include "module/pelanggan/add_pelanggan.php";
         }
-        if ($_GET['module'] == 'edit_pelanggan') {
+        elseif ($_GET['module'] == 'edit_pelanggan') {
           include "module/pelanggan/edit_pelanggan.php";
         }
-        if ($_GET['module'] == 'kategori_menu') {
+        elseif ($_GET['module'] == 'kategori_menu') {
           include "module/kategori_menu/list_kategori_menu.php";
         }
-        if ($_GET['module'] == 'add_kategori_menu') {
+        elseif ($_GET['module'] == 'add_kategori_menu') {
           include "module/kategori_menu/add_kategori_menu.php";
         }
-        if ($_GET['module'] == 'edit_kategori_menu') {
+        elseif ($_GET['module'] == 'edit_kategori_menu') {
           include "module/kategori_menu/edit_kategori_menu.php";
         }
-        if ($_GET['module'] == 'jenis_meja') {
+        elseif ($_GET['module'] == 'jenis_meja') {
           include "module/jenis_meja/list_jenis_meja.php";
         }
-        if ($_GET['module'] == 'add_jenis_meja') {
+        elseif ($_GET['module'] == 'add_jenis_meja') {
           include "module/jenis_meja/add_jenis_meja.php";
         }
-        if ($_GET['module'] == 'edit_jenis_meja') {
+        elseif ($_GET['module'] == 'edit_jenis_meja') {
           include "module/jenis_meja/edit_jenis_meja.php";
         }
-        if ($_GET['module'] == 'meja') {
+        elseif ($_GET['module'] == 'meja') {
           include "module/meja/list_meja.php";
         }
         if ($_GET['module'] == 'add_meja') {
           include "module/meja/add_meja.php";
         }
-        if ($_GET['module'] == 'edit_meja') {
+        elseif ($_GET['module'] == 'edit_meja') {
           include "module/meja/edit_meja.php";
         }
+        elseif ($_GET['module'] == 'menu') {
+          include "module/menu/list_menu.php";
+        }
+        elseif ($_GET['module'] == 'add_menu') {
+          include "module/menu/add_menu.php";
+        }
+        elseif ($_GET['module'] == 'edit_menu') {
+          include "module/menu/edit_menu.php";
+        }
+        elseif ($_GET['module'] == 'pesanan') {
+          include "module/pesanan/list_pesanan";
+        }
+        elseif ($_GET['module'] == 'add_pesanan') {
+          include "module/pesanan/add_pesanan.php";
+        }
+        elseif ($_GET['module'] == 'edit_pesanan') {
+          include "module/pesanan/edit_pesanan.php";
+        }
+
       ?>
     </div>  
     <footer class="app-footer">
