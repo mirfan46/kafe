@@ -44,7 +44,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                       <tbody>
                         <tr>
                           <td><?php echo $nomor++; ?></td>
-                          <td><?php echo $kar['nama_jenis_meja']; ?></td>
+                          <td><?php echo $kar[1]; ?></td>
                           <td>
                             <a href="<?php echo $admin_url; ?>dashboardadmin.php?module=edit_jenis_meja&id_jenis_meja=<?php echo $kar['id_jenis_meja']; ?>"
                               <span class="badge badge-warning">Edit</span>

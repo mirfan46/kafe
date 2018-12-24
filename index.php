@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<!-- head -->
+	<?php include "template/head.php"; ?>
+	<body>
+		<!-- header -->
+		<?php include "template/header.php"; ?>
+
+		<!-- banner -->
+		<?php include "template/banner.php"; ?>
+
+		<!-- main -->
+		<?php include "page/main.php"; ?>
+
+		<!-- footer -->
+		<?php include "template/footer.php"; ?>
+
+		<!-- javascript -->
+		<?php include "template/js.php"; ?>
+
+	</body>
+</html>
