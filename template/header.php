@@ -30,6 +30,7 @@
 				          <li><a href="login.php">Login</a></li>
 				          <li><a href="register.php">Register</a></li>
 				          <li><a href="#pesanan anda">Pesananmu</a></li>
+				          <li><a href="page/logout.php">Logout</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
