@@ -1,29 +1,26 @@
 <?php
-session_start();
-
-$koneksi = new mysqli("localhost","root","","kafe");
-
-if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) 
-{
-    echo "<script>alert('keranjang kosong, silahkan pesan dulu');</script>";
-    echo "<script>location='index.php';</script>";
-}
-
+    session_start();
+	$koneksi = new mysqli("localhost","root","","kafe");
+	
+	if (!isset($_SESSION["pelanggan"]))
+	{
+		echo "<script>alert('silahkan login dulu');</script>";
+    	echo "<script>location='login.php';</script>";
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
-	<!-- head -->
+<!-- head -->
 	<?php include "template/head.php"; ?>
-	<body>
-		<!-- header -->
+<body>
+<!-- header -->
 		<?php include "template/header.php"; ?>
 
 		<!-- banner -->
 		<?php include "template/banner.php"; ?>
 
-		<!-- main -->
-
+        <!-- checkout -->
 <section class="konten">
 	<div class="container">
 		<h1>Pesanan Anda</h1>
@@ -35,11 +32,11 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                         <td>harga</td>
                         <td>jumlah</td>
                         <td>sub haraga</td>
-                        <th>aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $nomer=1; ?>
+				<?php $totalpesanan=0; ?>
                 <?php foreach ($_SESSION["keranjang"] as $id_menu => $jumlah): ?>
                 <!-- menampilkan produk yg sedang diperulangkan berdasarkan id_menu -->
                 <?php
@@ -53,24 +50,52 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                         <td>Rp. <?php echo number_format($pecah['harga_menu']); ?></td>
                         <td><?php echo $jumlah; ?></td>
                         <td><?php echo number_format($sub_harga); ?></td>
-                        <th>
-                            <a href="hapuskeranjang.php?id=<?php echo $id_menu ?>" class="btn btn-danger btn-xs">hapus</a>
-                        </th>
                     </tr>
                 <?php $nomer++; ?>
+				<?php $totalpesanan+=$sub_harga; ?>
                 <?php   endforeach ?>
                 </tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">Total Pesanan</td>
+						<td>Rp. <?php echo number_format($totalpesanan); ?></td>
+					</tr>
+				</tfoot>
             </table>
-            <a href="index.php" class="btn btn-default">Lanjut Pesan</a>
-            <a href="checkout.php" class="btn btn-primary">Proses Pesan</a>
+
+			<form action="post">
+				<div class="row">
+					<div class="col-md-6">
+						<input class="form-control" type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan'] ?>">
+					</div>
+					<div class="col-md-6">
+						<select name="id_meja" class="form-control">
+							<option value="">Pilih Meja</option>
+							<?php
+							$ambil = $koneksi->query("SELECT * FROM meja");
+							while($pilihmeja = $ambil->fetch_assoc()){
+							?>
+							<option value="<?php echo $pilihmeja['id_meja'] ?>">
+								<?php echo $pilihmeja['nomer_meja'] ?> -
+								<?php echo $pilihmeja['status_meja'] ?>
+							</option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+				<br>
+				<button class="btn btn-primary" name="checkout">Checkout</button>
+			</form>
+
 	</div>
 </section>
 
-		<!-- footer -->
+
+        <!-- footer -->
 		<?php include "template/footer.php"; ?>
 
 		<!-- javascript -->
 		<?php include "template/js.php"; ?>
-
-	</body>
+    
+</body>
 </html>

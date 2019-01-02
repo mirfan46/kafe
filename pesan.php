@@ -4,7 +4,7 @@ session_start();
 $id_menu = $_GET['id'];
 
 //jika ada produk itu dikeranjang maka akan bertambah 1
-if (isset($_SESSION['keranjang']['$id_menu']))
+if (isset($_SESSION['keranjang'][$id_menu]))
 {
     $_SESSION['keranjang'][$id_menu]+=1;
 }
@@ -12,7 +12,7 @@ if (isset($_SESSION['keranjang']['$id_menu']))
 //jika belum ada produk dikeranjang maka akan menjadi 1
 else
 {
-    $_SESSION['keranjang']['$id_menu'] = 1;
+    $_SESSION['keranjang'][$id_menu] = 1;
 }
 
 //lari ke halaman keranjang

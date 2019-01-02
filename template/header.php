@@ -26,11 +26,14 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="index.php">Home</a></li>
-				          <li><a href="#about">About</a></li>
-				          <li><a href="login.php">Login</a></li>
-				          <li><a href="register.php">Register</a></li>
-				          <li><a href="#pesanan anda">Pesananmu</a></li>
-				          <li><a href="page/logout.php">Logout</a></li>
+									<li><a href="keranjang.php">Keranjang</a></li>
+									<li><a href="checkout.php">Checkout</a></li>
+									<?php if (isset($_SESSION["pelanggan"])): ?>
+										<li><a href="logout.php">Logout</a></li>
+									<?php else: ?>
+										<li><a href="login.php">Login</a></li>
+									<?php endif ?>
+				          
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>

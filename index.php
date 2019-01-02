@@ -1,3 +1,8 @@
+<?php
+session_start();
+$koneksi = new mysqli("localhost","root","","kafe");
+
+?>
 <!DOCTYPE html>
 <html>
 	<!-- head -->
@@ -8,13 +13,6 @@
 
 		<!-- banner -->
 		<?php include "template/banner.php"; ?>
-
-		<!-- main -->
-		<?php
-session_start();
-$koneksi = new mysqli("localhost","root","","kafe");
-
-?>
 
 <!-- konten -->
 <section class="konten">
