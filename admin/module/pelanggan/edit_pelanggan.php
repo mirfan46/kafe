@@ -28,7 +28,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 
                     $hasilQuery=mysqli_fetch_array($queryEdit);
                     $idPelanggan=$hasilQuery['id_pelanggan'];
-                    $username=$hasilQuery['username'];
+                    $email=$hasilQuery['email'];
                     $password=$hasilQuery['password'];
                     $nama=$hasilQuery['nama_pelanggan'];
                     ?>
@@ -36,21 +36,15 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                     <form class="form-horizontal" action="../admin/module/pelanggan/aksi_edit.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_pelanggan" value="<?php echo $idPelanggan; ?>">
                       <div class="form-group row justify-content-start">
-                        <label class="col-sm-2 col-form-label" for="text-input">Username :</label>
+                        <label class="col-sm-2 col-form-label" for="text-input">Email :</label>
                         <div class="col-sm-10">
-                          <input class="form-control" id="username" type="text" name="username" placeholder="Username" value="<?php echo $username; ?>">
+                          <input class="form-control" id="email" type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
                         </div>
                       </div>
                       <div class="form-group row justify-content-start">
                         <label class="col-sm-2 col-form-label" for="text-input">Password :</label>
                         <div class="col-sm-10">
                           <input class="form-control" id="password" type="password" name="password" placeholder="Password" value="<?php echo $password; ?>">
-                        </div>
-                      </div>
-                      <div class="form-group row justify-content-start">
-                        <label class="col-sm-2 col-form-label" for="text-input">Ulangi Password :</label>
-                        <div class="col-sm-10">
-                          <input class="form-control" id="text-input" type="password" name="text-input" placeholder="Ulangi password">
                         </div>
                       </div>
                       <div class="form-group row justify-content-start">

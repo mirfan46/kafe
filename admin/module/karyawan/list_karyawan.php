@@ -32,7 +32,6 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                         <tr>
                           <th>No</th>
                           <th>Username</th>
-                          <th>Password</th>
                           <th>Nama</th>
                           <th>Level</th>
                           <th>Aksi</th>
@@ -48,7 +47,6 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                         <tr>
                           <td><?php echo $nomor++; ?></td>
                           <td><?php echo $kar['username']; ?></td>
-                          <td><?php echo $kar['password']; ?></td>
                           <td><?php echo $kar['nama_karyawan']; ?></td>
                           <td><?php echo $kar['level']; ?></td>
                           <td>

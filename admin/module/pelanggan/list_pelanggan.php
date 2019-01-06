@@ -31,8 +31,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Username</th>
-                          <th>Password</th>
+                          <th>Email</th>
                           <th>Nama</th>
                           <th>Aksi</th>
                         </tr>
@@ -47,8 +46,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                       <tbody>
                         <tr>
                           <td><?php echo $nomor++; ?></td>
-                          <td><?php echo $pel['username']; ?></td>
-                          <td><?php echo $pel['password']; ?></td>
+                          <td><?php echo $pel['email']; ?></td>
                           <td><?php echo $pel['nama_pelanggan']; ?></td>
                           <td>
                             <a href="<?php echo $admin_url; ?>dashboardadmin.php?module=edit_pelanggan&id_pelanggan=<?php echo $pel['id_pelanggan']; ?>"

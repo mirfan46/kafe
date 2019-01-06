@@ -9,11 +9,11 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
     include "../../../lib/koneksi.php";
 
     $idPelanggan = $_POST['id_pelanggan'];
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password=$_POST['password'];
     $nama=$_POST['nama'];
 
-    $queryEdit = mysqli_query($koneksi, "UPDATE pelanggan SET username='$username', password='$password', nama_pelanggan='$nama' WHERE id_pelanggan='$idPelanggan'");
+    $queryEdit = mysqli_query($koneksi, "UPDATE pelanggan SET email='$email', password='$password', nama_pelanggan='$nama' WHERE id_pelanggan='$idPelanggan'");
 
     if ($queryEdit) {
         echo "<script> alert('Data Pelanggan Berhasil Diubah'); window.location = '$admin_url'+'dashboardadmin.php?module=pelanggan';</script>";

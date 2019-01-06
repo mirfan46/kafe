@@ -63,7 +63,7 @@
 				</tfoot>
             </table>
 
-			<form action="post">
+			<form method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<input class="form-control" type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan'] ?>">
@@ -86,6 +86,38 @@
 				<br>
 				<button class="btn btn-primary" name="checkout">Checkout</button>
 			</form>
+
+			<?php
+			if (isset($_POST["checkout"])) 
+			{
+				$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
+				$id_meja = $_POST["id_meja"];
+				$tanggal_pesan = date("Y-m-d");
+				$status = "pending";
+				$totalpemesanan = $totalpesanan;
+
+				//1. menyimpan data ke tabel pemesanan
+				$koneksi->query("INSERT INTO pemesanan (id_pelanggan, id_meja, tanggal, status_pesanan, total_pesanan)
+								VALUES ('$id_pelanggan','$id_meja','$tanggal_pesan','$status','$totalpemesanan')");
+
+				//mendapatkan id_pemesanan yang barusan terjadi
+				$id_pemesanan_barusan = $koneksi->insert_id;
+
+				foreach ($_SESSION["keranjang"] as $id_menu => $jumlah) 
+				{
+					$koneksi->query("INSERT INTO detail_pemesanan (id_pemesanan, id_menu, jumlah) 
+									VALUES ('$id_pemesanan_barusan','$id_menu','$jumlah')");
+				}
+
+				//mengkosongkan keranjang belanja
+				unset($_SESSION["keranjang"]);
+
+				//tampilkan nota pemesanan
+				echo "<script>alert('pemesanan sukses');</script>";
+				echo "<script>location='nota.php?id=$id_pemesanan_barusan';</script>";
+			}
+				
+			?>
 
 	</div>
 </section>

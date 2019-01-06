@@ -22,21 +22,15 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                   <div class="card-body">
                     <form class="form-horizontal" action="../admin/module/pelanggan/aksi_simpan.php" method="post" enctype="multipart/form-data">
                       <div class="form-group row justify-content-start">
-                        <label class="col-sm-2 col-form-label" for="text-input">Username :</label>
+                        <label class="col-sm-2 col-form-label" for="text-input">Email :</label>
                         <div class="col-sm-10">
-                          <input class="form-control" id="username" type="text" name="username" placeholder="Username">
+                          <input class="form-control" id="email" type="email" name="email" placeholder="Email">
                         </div>
                       </div>
                       <div class="form-group row justify-content-start">
                         <label class="col-sm-2 col-form-label" for="text-input">Password :</label>
                         <div class="col-sm-10">
                           <input class="form-control" id="password" type="password" name="password" placeholder="Password">
-                        </div>
-                      </div>
-                      <div class="form-group row justify-content-start">
-                        <label class="col-sm-2 col-form-label" for="text-input">Ulangi Password :</label>
-                        <div class="col-sm-10">
-                          <input class="form-control" id="text-input" type="password" name="text-input" placeholder="Ulangi password">
                         </div>
                       </div>
                       <div class="form-group row justify-content-start">

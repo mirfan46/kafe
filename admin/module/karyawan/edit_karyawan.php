@@ -64,7 +64,6 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
                         <label class="col-sm-2 col-form-label" for="select1">Pilih level :</label>
                         <div class="col-sm-10">
                           <select class="form-control" id="level" name="level">
-                            <option value="Admin">Admin</option>
                             <option value="Karyawan">Karyawan</option>
                             <option value="Pemilik">Pemilik</option>
                           </select>
