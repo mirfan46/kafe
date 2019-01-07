@@ -7,6 +7,12 @@
 		echo "<script>alert('silahkan login dulu');</script>";
     	echo "<script>location='login.php';</script>";
 	}
+
+	if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) 
+		{
+			echo "<script>alert('silahkan pesan dulu');</script>";
+			echo "<script>location='index.php';</script>";
+		}
 ?>
 
 <!DOCTYPE html>
@@ -95,18 +101,30 @@
 				$tanggal_pesan = date("Y-m-d");
 				$status = "pending";
 				$totalpemesanan = $totalpesanan;
+				$ambil = $koneksi->query("SELECT * FROM meja WHERE id_meja='$id_meja'");
+				$arraymeja = $ambil->fetch_assoc();
+				$nomermeja = $arraymeja['nomer_meja'];
 
 				//1. menyimpan data ke tabel pemesanan
-				$koneksi->query("INSERT INTO pemesanan (id_pelanggan, id_meja, tanggal, status_pesanan, total_pesanan)
-								VALUES ('$id_pelanggan','$id_meja','$tanggal_pesan','$status','$totalpemesanan')");
+				$koneksi->query("INSERT INTO pemesanan (id_pelanggan, id_meja, tanggal, status_pesanan, total_pesanan, nomer_meja)
+								VALUES ('$id_pelanggan','$id_meja','$tanggal_pesan','$status','$totalpemesanan','$nomermeja')");
 
 				//mendapatkan id_pemesanan yang barusan terjadi
 				$id_pemesanan_barusan = $koneksi->insert_id;
 
 				foreach ($_SESSION["keranjang"] as $id_menu => $jumlah) 
 				{
-					$koneksi->query("INSERT INTO detail_pemesanan (id_pemesanan, id_menu, jumlah) 
-									VALUES ('$id_pemesanan_barusan','$id_menu','$jumlah')");
+
+					//mendapatkan data menu berdasarkan id menu
+					$ambil = $koneksi->query("SELECT * FROM menu WHERE id_menu='$id_menu'");
+					$permenu = $ambil->fetch_assoc();
+
+					$nama = $permenu['nama_menu'];
+					$harga = $permenu['harga_menu'];
+					$subtotal = $permenu['harga_menu']*$jumlah;
+
+					$koneksi->query("INSERT INTO detail_pemesanan (id_pemesanan, id_menu, nama, harga, subtotal, jumlah) 
+									VALUES ('$id_pemesanan_barusan','$id_menu','$nama','$harga','$subtotal','$jumlah')");
 				}
 
 				//mengkosongkan keranjang belanja
@@ -114,7 +132,7 @@
 
 				//tampilkan nota pemesanan
 				echo "<script>alert('pemesanan sukses');</script>";
-				echo "<script>location='nota.php?id=$id_pemesanan_barusan';</script>";
+				echo "<script>location='nota.php?id_pemesanan=$id_pemesanan_barusan';</script>";
 			}
 				
 			?>

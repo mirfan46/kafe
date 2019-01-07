@@ -182,14 +182,12 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
           include "module/menu/edit_menu.php";
         }
         elseif ($_GET['module'] == 'pesanan') {
-          include "module/pesanan/list_pesanan";
+          include "module/pesanan/list_pesanan.php";
         }
-        elseif ($_GET['module'] == 'add_pesanan') {
-          include "module/pesanan/add_pesanan.php";
+        elseif ($_GET['module'] == 'detail') {
+          include "module/pesanan/detail.php";
         }
-        elseif ($_GET['module'] == 'edit_pesanan') {
-          include "module/pesanan/edit_pesanan.php";
-        }
+        
 
       ?>
     </div>  
