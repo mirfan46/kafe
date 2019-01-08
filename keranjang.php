@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$koneksi = new mysqli("localhost","root","","kafe");
+include "lib/koneksi.php";
 
 if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) 
 {

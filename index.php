@@ -1,6 +1,6 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost","root","","kafe");
+include "lib/koneksi.php";
 
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ $koneksi = new mysqli("localhost","root","","kafe");
 						<h5>Rp. <?php echo number_format($permenu['harga_menu']); ?></h5>
 						<h6>Stok <?php echo $permenu['status_menu']; ?></h6>
 						<a href="pesan.php?id=<?php echo $permenu['id_menu']; ?>" class="btn btn-primary">Pesan</a>
+						<a href="detail.php?id=<?php echo $permenu['id_menu']; ?>" class="btn btn-warning">Detail</a>
 					</div>
 				</div>
 			</div>

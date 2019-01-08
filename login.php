@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $koneksi = new mysqli("localhost","root","","kafe");
+    include "lib/koneksi.php";
 ?>
 
 <!DOCTYPE html>

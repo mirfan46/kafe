@@ -1,6 +1,6 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost","root","","kafe");
+include "lib/koneksi.php";
 
 $ambil = $koneksi->query("SELECT * FROM pemesanan JOIN pelanggan
     ON pemesanan.id_pelanggan=pelanggan.id_pelanggan
