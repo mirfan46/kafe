@@ -30,6 +30,7 @@
 									<li><a href="checkout.php">Checkout</a></li>
 									<?php if (isset($_SESSION["pelanggan"])): ?>
 										<li><a href="logout.php">Logout</a></li>
+										<li><a href="riwayat.php">Riwayat Pesanan</a></li>
 									<?php else: ?>
 										<li><a href="login.php">Login</a></li>
 										<li><a href="daftar.php">Daftar</a></li>

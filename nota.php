@@ -8,6 +8,22 @@ $ambil = $koneksi->query("SELECT * FROM pemesanan JOIN pelanggan
     $detail = $ambil->fetch_assoc();
 
 ?>
+    
+<?php
+    //mengamankan nota agar tidak bisa melihat nota orang lain
+    //mendapat id_pelanggan yang pesan
+    $idpelangganyangpesan = $detail["id_pelanggan"];
+
+    //mendapat id_pelanggan yang login
+    $idpelangganyanglogin = $_SESSION["pelanggan"]["id_pelanggan"];
+
+    if ($idpelangganyangpesan !== $idpelangganyanglogin) 
+    {
+        echo "<script>alert('jangan nakal');</script>";
+        echo "<script>location='riwayat.php';</script>";
+        exit();    
+    }
+?>
 
 <!DOCTYPE html>
 <html>

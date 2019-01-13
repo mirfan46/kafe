@@ -60,7 +60,17 @@
                     $akun =$ambil->fetch_assoc();
                     $_SESSION["pelanggan"] = $akun;
                     echo"<script>alert('anda sukses login');</script>";
-                    echo"<script>location='checkout.php';</script>";
+
+                    //jika sudah pesan
+                    if (isset($_SESSION["keranjang"]) OR !empty($_SESSION["keranjang"])) 
+                    {
+                        echo"<script>location='checkout.php';</script>";    
+                    }
+                    else 
+                    {
+                        echo"<script>location='riwayat.php';</script>";    
+                    }
+                    
                 }
                 else {
                     //gagal login

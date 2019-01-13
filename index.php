@@ -25,7 +25,7 @@ include "lib/koneksi.php";
 			<?php while($permenu = $ambil->fetch_assoc()){ ?>
 			<div class="col-md-3">
 				<div class="thumbnail">
-					<img src="admin/upload/<?php echo $permenu['gambar_menu']; ?>">
+					<img src="admin/upload/<?php echo $permenu['gambar_menu']; ?>" height="200" width="200">
 					<div class="caption">
 						<h3><?php echo $permenu['nama_menu']; ?></h3>
 						<h5>Rp. <?php echo number_format($permenu['harga_menu']); ?></h5>

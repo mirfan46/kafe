@@ -7,12 +7,7 @@
 		echo "<script>alert('silahkan login dulu');</script>";
     	echo "<script>location='login.php';</script>";
 	}
-
-	if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) 
-		{
-			echo "<script>alert('silahkan pesan dulu');</script>";
-			echo "<script>location='index.php';</script>";
-		}
+	
 ?>
 
 <!DOCTYPE html>
@@ -78,11 +73,11 @@
 						<select name="id_meja" class="form-control">
 							<option value="">Pilih Meja</option>
 							<?php
-							$ambil = $koneksi->query("SELECT * FROM meja");
+							$ambil = $koneksi->query("SELECT * FROM meja WHERE status_meja='kosong'");
 							while($pilihmeja = $ambil->fetch_assoc()){
 							?>
 							<option value="<?php echo $pilihmeja['id_meja'] ?>">
-								<?php echo $pilihmeja['nomer_meja'] ?> -
+								Meja <?php echo $pilihmeja['nomer_meja'] ?> -
 								<?php echo $pilihmeja['status_meja'] ?>
 							</option>
 							<?php } ?>
@@ -104,7 +99,9 @@
 				$ambil = $koneksi->query("SELECT * FROM meja WHERE id_meja='$id_meja'");
 				$arraymeja = $ambil->fetch_assoc();
 				$nomermeja = $arraymeja['nomer_meja'];
+				$status_meja = "Terisi";
 
+				
 				//1. menyimpan data ke tabel pemesanan
 				$koneksi->query("INSERT INTO pemesanan (id_pelanggan, id_meja, tanggal, status_pesanan, total_pesanan, nomer_meja)
 								VALUES ('$id_pelanggan','$id_meja','$tanggal_pesan','$status','$totalpemesanan','$nomermeja')");
@@ -126,6 +123,9 @@
 					$koneksi->query("INSERT INTO detail_pemesanan (id_pemesanan, id_menu, nama, harga, subtotal, jumlah) 
 									VALUES ('$id_pemesanan_barusan','$id_menu','$nama','$harga','$subtotal','$jumlah')");
 				}
+				
+				//mengubah status meja
+				$koneksi->query("UPDATE meja SET status_meja='$status_meja' WHERE id_meja='$id_meja'");
 
 				//mengkosongkan keranjang belanja
 				unset($_SESSION["keranjang"]);
