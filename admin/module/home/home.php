@@ -4,9 +4,77 @@
     <div class="card-body">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-3">Selamat Datang Admin</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <h1 class="display-3">Selamat Datang
+            <?php echo $_SESSION["admin"]["nama_karyawan"]; ?>
+          </h1>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-primary">
+      <div class="card-body pb-0">
+        <div class="btn-group float-right">
+          <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="icon-settings"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="index.php?module=pelanggan">Lihat</a>
+          </div>
+        </div>
+        <div class="text-value">9.823</div>
+        <div>Pelanggan terdaftar</div>
+      </div>
+    </div>
+  </div>
+  <!-- /.col-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-info">
+      <div class="card-body pb-0">
+        <button class="btn btn-transparent p-0 float-right" type="button">
+          <i class="icon-location-pin"></i>
+        </button>
+        <div class="text-value">9.823</div>
+        <div>Pesanan</div>
+      </div>
+    </div>
+  </div>
+  <!-- /.col-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-warning">
+      <div class="card-body pb-0">
+        <div class="btn-group float-right">
+          <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="icon-settings"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="index.php?module=menu">Lihat</a>
+          </div>
+        </div>
+        <div class="text-value">9.823</div>
+        <div>Menu</div>
+      </div>
+    </div>
+  </div>
+  <!-- /.col-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-danger">
+      <div class="card-body pb-0">
+        <div class="btn-group float-right">
+          <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="icon-settings"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="index.php?module=meja">Lihat</a>
+          </div>
+        </div>
+        <div class="text-value">9.823</div>
+        <div>Meja</div>
       </div>
     </div>
   </div>
@@ -16,50 +84,54 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Combined All Table</div>
+        <i class="fa fa-align-justify"></i> Pesanan Baru</div>
       <div class="card-body">
         <table class="table table-responsive-sm table-bordered table-striped table-sm">
           <thead>
             <tr>
               <th>No</th>
-              <th>Date registered</th>
-              <th>Role</th>
-              <th>Status</th>
+              <th>Nama Pelanggan</th>
+              <th>Tanggal</th>
+              <th>Total</th>
+              <th>No Meja</th>
+              <th>Status Pesanan</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
+            <?php $nomer=1 ?>
+            <?php $ambil = $koneksi->query("SELECT * FROM pemesanan 
+                                    JOIN pelanggan ON pemesanan.id_pelanggan=pelanggan.id_pelanggan"); ?>
+            <?php while($pecah = $ambil->fetch_assoc()){ ?>
             <tr>
-              <td>Vishnu Serghei</td>
-              <td>2012/01/01</td>
-              <td>Member</td>
               <td>
-                <span class="badge badge-success">Active</span>
+                <?php echo $nomer; ?>
+              </td>
+              <td>
+                <?php echo $pecah['nama_pelanggan']; ?>
+              </td>
+              <td>
+                <?php echo $pecah['tanggal']; ?>
+              </td>
+              <td>Rp.
+                <?php echo number_format($pecah['total_pesanan']); ?>
+              </td>
+              <td>
+                <?php echo $pecah['nomer_meja']; ?>
+              </td>
+              <td>
+                <span class="badge badge-info">
+                  <?php echo $pecah['status_pesanan']; ?>
+                </span>
+              </td>
+              <td>
+                <a href="index.php?module=detail_pesanan&id_pemesanan=<?php echo $pecah['id_pemesanan']; ?>" class="btn btn-info">Detail</a>
               </td>
             </tr>
+            <?php $nomer++; ?>
+            <?php } ?>
           </tbody>
         </table>
-        <nav>
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">Prev</a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   </div>

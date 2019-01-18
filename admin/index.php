@@ -79,7 +79,7 @@ if (!isset($_SESSION['admin']))
           </div>
           <a class="dropdown-item" href="#">
             <i class="fa fa-user"></i> Profile</a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="index.php?module=logout">
             <i class="fa fa-lock"></i> Logout</a>
         </div>
       </li>
@@ -174,12 +174,12 @@ if (!isset($_SESSION['admin']))
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php?module=laporan">
               <i class="nav-icon icon-speedometer"></i> Laporan
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php?module=logout">
               <i class="nav-icon icon-speedometer"></i> Logout
             </a>
           </li>
@@ -296,6 +296,14 @@ if (!isset($_SESSION['admin']))
                   if ($_GET['module']=="delete_jenis_meja") 
                   {
                     include 'module/jenis_meja/delete_jenis_meja.php';
+                  }
+                  if ($_GET['module']=="laporan") 
+                  {
+                    include 'module/laporan/laporan.php';
+                  }
+                  if ($_GET['module']=="logout") 
+                  {
+                    include 'logout.php';
                   }
                 }
                 else
