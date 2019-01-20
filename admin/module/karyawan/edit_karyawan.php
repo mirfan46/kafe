@@ -27,19 +27,19 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Username :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="username" value="<?php echo $pecah['username']; ?>">
+            <input class="form-control" type="text" name="username" value="<?php echo $pecah['username']; ?>" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Password :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="password" name="password" value="<?php echo $pecah['password']; ?>">
+            <input class="form-control" type="password" name="password" value="<?php echo $pecah['password']; ?>" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Nama :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_karyawan']; ?>">
+            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_karyawan']; ?>" required>
           </div>
         </div>
         <div class="form-group row">

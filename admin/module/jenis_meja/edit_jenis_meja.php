@@ -22,7 +22,7 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Jenis Meja :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="jenis" value="<?php echo $pecah['nama_jenis_meja']; ?>">
+            <input class="form-control" type="text" name="jenis" value="<?php echo $pecah['nama_jenis_meja']; ?>" required>
           </div>
         </div>
     </div>

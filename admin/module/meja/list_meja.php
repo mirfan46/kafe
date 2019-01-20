@@ -38,6 +38,7 @@
                           <td>
                             <a href="index.php?module=edit_meja&id_meja=<?php echo $meja['id_meja']; ?>" class="btn btn-warning">Edit</a>
                             <a href="index.php?module=delete_meja&id_meja=<?php echo $meja['id_meja'];?>" onClick="return confirm('Anda yakin ingin menghapus data ini?')" class="btn btn-danger">Delete</a>
+                            <a href="index.php?module=kosongkan_meja&id_meja=<?php echo $meja['id_meja']; ?>" onClick="return confirm('Andat yakin ingin kosongkan meja ini')" class="btn btn-secondary">Kosongkan</a>
                           </td>
                         </tr>
                       </tbody>

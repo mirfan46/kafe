@@ -22,13 +22,13 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Nama Menu :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="nama" placeholder="Nama Menu">
+            <input class="form-control" type="text" name="nama" placeholder="Nama Menu" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Harga Menu :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="number" name="harga" placeholder="Harga Menu">
+            <input class="form-control" type="number" name="harga" placeholder="Harga Menu" required>
           </div>
         </div>
         <div class="form-group row">
@@ -56,7 +56,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="textarea-input">Deskripsi</label>
           <div class="col-sm-10">
-            <textarea class="form-control" name="deskripsi" rows="9" placeholder="Deskripsi..."></textarea>
+            <textarea class="form-control" name="deskripsi" rows="9" placeholder="Deskripsi..." required></textarea>
           </div>
         </div>
         <div class="form-group row">

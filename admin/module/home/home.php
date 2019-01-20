@@ -1,3 +1,4 @@
+
 <!-- Selamat datang -->
 <div class="col-sm-8 col-xl-12">
   <div class="card">
@@ -13,6 +14,10 @@
   </div>
 </div>
 <div class="row">
+  <?php
+    $ambil = $koneksi->query("SELECT * FROM pelanggan");
+    $jumlahpelanggan = $ambil->num_rows;
+  ?>
   <div class="col-sm-6 col-lg-3">
     <div class="card text-white bg-primary">
       <div class="card-body pb-0">
@@ -25,24 +30,38 @@
             <a class="dropdown-item" href="index.php?module=pelanggan">Lihat</a>
           </div>
         </div>
-        <div class="text-value">9.823</div>
+        <div class="text-value"><?= $jumlahpelanggan; ?></div>
         <div>Pelanggan terdaftar</div>
       </div>
     </div>
   </div>
   <!-- /.col-->
+  <?php
+    $ambil = $koneksi->query("SELECT * FROM pemesanan");
+    $jumlahpesanan = $ambil->num_rows;
+  ?>
   <div class="col-sm-6 col-lg-3">
     <div class="card text-white bg-info">
       <div class="card-body pb-0">
-        <button class="btn btn-transparent p-0 float-right" type="button">
-          <i class="icon-location-pin"></i>
-        </button>
-        <div class="text-value">9.823</div>
+        <div class="btn-group float-right">
+          <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="icon-settings"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="index.php?module=pesanan">Lihat</a>
+          </div>
+        </div>
+        <div class="text-value"><?= $jumlahpesanan; ?></div>
         <div>Pesanan</div>
       </div>
     </div>
   </div>
   <!-- /.col-->
+  <?php
+    $ambil = $koneksi->query("SELECT * FROM menu");
+    $jumlahmenu = $ambil->num_rows;
+  ?>
   <div class="col-sm-6 col-lg-3">
     <div class="card text-white bg-warning">
       <div class="card-body pb-0">
@@ -55,12 +74,16 @@
             <a class="dropdown-item" href="index.php?module=menu">Lihat</a>
           </div>
         </div>
-        <div class="text-value">9.823</div>
+        <div class="text-value"><?= $jumlahmenu; ?></div>
         <div>Menu</div>
       </div>
     </div>
   </div>
   <!-- /.col-->
+  <?php
+    $ambil = $koneksi->query("SELECT * FROM meja");
+    $jumlahmeja = $ambil->num_rows;
+  ?>
   <div class="col-sm-6 col-lg-3">
     <div class="card text-white bg-danger">
       <div class="card-body pb-0">
@@ -73,7 +96,7 @@
             <a class="dropdown-item" href="index.php?module=meja">Lihat</a>
           </div>
         </div>
-        <div class="text-value">9.823</div>
+        <div class="text-value"><?= $jumlahmeja; ?></div>
         <div>Meja</div>
       </div>
     </div>

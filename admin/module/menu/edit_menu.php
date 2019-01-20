@@ -46,13 +46,13 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Nama Menu :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_menu']; ?>">
+            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_menu']; ?>" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Harga Menu :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="number" name="harga" value="<?php echo $pecah['harga_menu']; ?>">
+            <input class="form-control" type="number" name="harga" value="<?php echo $pecah['harga_menu']; ?>" required>
           </div>
         </div>
         <div class="form-grup">
@@ -83,7 +83,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="textarea-input">Deskripsi</label>
           <div class="col-sm-10">
-            <textarea class="form-control" name="deskripsi" rows="9"><?php echo $pecah['deskripsi_menu']; ?></textarea>
+            <textarea class="form-control" name="deskripsi" rows="9" required><?php echo $pecah['deskripsi_menu']; ?></textarea>
           </div>
         </div>
         <div class="form-group row">

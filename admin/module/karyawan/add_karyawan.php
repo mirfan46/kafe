@@ -22,19 +22,19 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Username :</label>
           <div class="col-sm-10">
-            <input class="form-control" id="username" type="text" name="username" placeholder="Username">
+            <input class="form-control" id="username" type="text" name="username" placeholder="Username" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Password :</label>
           <div class="col-sm-10">
-            <input class="form-control" id="password" type="password" name="password" placeholder="Password">
+            <input class="form-control" id="password" type="password" name="password" placeholder="Password" required>
           </div>
         </div>
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Nama :</label>
           <div class="col-sm-10">
-            <input class="form-control" id="nama" type="text" name="nama" placeholder="Nama">
+            <input class="form-control" id="nama" type="text" name="nama" placeholder="Nama" required>
           </div>
         </div>
         <div class="form-group row">

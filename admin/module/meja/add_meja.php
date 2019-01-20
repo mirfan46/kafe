@@ -16,7 +16,7 @@
                       <div class="form-group row justify-content-start">
                         <label class="col-sm-2 col-form-label" for="text-input">Nomer Meja :</label>
                         <div class="col-sm-10">
-                          <input class="form-control" type="number" name="nomermeja" placeholder="Nomer Meja">
+                          <input class="form-control" type="number" name="nomermeja" placeholder="Nomer Meja" required>
                         </div>
                       </div>
                       <div class="form-group row">

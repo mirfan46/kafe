@@ -21,7 +21,7 @@
         <div class="form-group row justify-content-start">
           <label class="col-sm-2 col-form-label" for="text-input">Kategori Menu :</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_kategori_menu']; ?>">
+            <input class="form-control" type="text" name="nama" value="<?php echo $pecah['nama_kategori_menu']; ?>" required>
           </div>
         </div>
     </div>

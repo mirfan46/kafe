@@ -31,7 +31,7 @@ if (!isset($_SESSION['admin']))
   <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
   <meta name="author" content="Łukasz Holeczek">
   <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-  <title>CoreUI Free Bootstrap Admin Template</title>
+  <title>Admin - Kafe Wisanggeni</title>
   <!-- Icons-->
   <link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
   <link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -97,90 +97,90 @@ if (!isset($_SESSION['admin']))
           <li class="nav-title">Main Menu</li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle">
-              <i class="nav-icon icon-puzzle"></i> Pesanan</a>
+              <i class="nav-icon icon-note"></i> Pesanan</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=pesanan">
-                  <i class="nav-icon icon-puzzle"></i> List Pesanan</a>
+                  <i class="nav-icon icon-list"></i> List Pesanan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> Karyawan</a>
+              <i class="nav-icon icon-user"></i> Karyawan</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=add_karyawan">
-                  <i class="nav-icon icon-puzzle"></i> Add Karyawan</a>
+                  <i class="nav-icon icon-plus"></i> Add Karyawan</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=karyawan">
-                  <i class="nav-icon icon-puzzle"></i> List Karyawan</a>
+                  <i class="nav-icon icon-list"></i> List Karyawan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> Pelanggan</a>
+              <i class="nav-icon icon-people"></i> Pelanggan</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=pelanggan">
-                  <i class="nav-icon icon-puzzle"></i> List Pelanggan</a>
+                  <i class="nav-icon icon-list"></i> List Pelanggan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> Menu</a>
+              <i class="nav-icon icon-book-open"></i> Menu</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=add_menu">
-                  <i class="nav-icon icon-puzzle"></i> Add Menu</a>
+                  <i class="nav-icon icon-plus"></i> Add Menu</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=menu">
-                  <i class="nav-icon icon-puzzle"></i> List Menu</a>
+                  <i class="nav-icon icon-list"></i> List Menu</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=add_kategori_menu">
-                  <i class="nav-icon icon-puzzle"></i> Add Kategori Menu</a>
+                  <i class="nav-icon icon-plus"></i> Add Kategori Menu</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=kategori_menu">
-                  <i class="nav-icon icon-puzzle"></i> List Kategori Menu</a>
+                  <i class="nav-icon icon-list"></i> List Kategori Menu</a>
               </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> Meja</a>
+              <i class="nav-icon icon-grid"></i> Meja</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=add_meja">
-                  <i class="nav-icon icon-puzzle"></i> Add Meja</a>
+                  <i class="nav-icon icon-plus"></i> Add Meja</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=meja">
-                  <i class="nav-icon icon-puzzle"></i> List Meja</a>
+                  <i class="nav-icon icon-list"></i> List Meja</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=add_jenis_meja">
-                  <i class="nav-icon icon-puzzle"></i> Add Jenis Meja</a>
+                  <i class="nav-icon icon-plus"></i> Add Jenis Meja</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?module=jenis_meja">
-                  <i class="nav-icon icon-puzzle"></i> List Jenis Meja</a>
+                  <i class="nav-icon icon-list"></i> List Jenis Meja</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?module=laporan">
-              <i class="nav-icon icon-speedometer"></i> Laporan
+              <i class="nav-icon icon-graph"></i> Laporan
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?module=logout">
-              <i class="nav-icon icon-speedometer"></i> Logout
+              <i class="nav-icon icon-logout"></i> Logout
             </a>
           </li>
         </ul>
@@ -304,6 +304,10 @@ if (!isset($_SESSION['admin']))
                   if ($_GET['module']=="logout") 
                   {
                     include 'logout.php';
+                  }
+                  if ($_GET['module']=="kosongkan_meja") 
+                  {
+                    include 'module/meja/kosong.php';
                   }
                 }
                 else
