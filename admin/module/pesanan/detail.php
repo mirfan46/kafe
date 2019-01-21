@@ -22,7 +22,7 @@ include "../lib/koneksi.php";
                         Tanggal pesanan :
                         <?php echo $detail['tanggal']; ?> <br>
                         Status pesanan :
-                        <?php echo $detail['status_pesanan']; ?> <br>
+                        <strong><?php echo $detail['status_pesanan']; ?></strong> <br>
                         Total pesanan : Rp.
                         <?php echo number_format($detail['total_pesanan']); ?>
                     </div>

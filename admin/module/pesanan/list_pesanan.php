@@ -19,7 +19,7 @@
           <tbody>
             <?php $nomer=1 ?>
             <?php $ambil = $koneksi->query("SELECT * FROM pemesanan 
-                                    JOIN pelanggan ON pemesanan.id_pelanggan=pelanggan.id_pelanggan"); ?>
+              JOIN pelanggan ON pemesanan.id_pelanggan=pelanggan.id_pelanggan ORDER BY id_pemesanan DESC"); ?>
             <?php while($pecah = $ambil->fetch_assoc()){ ?>
             <tr>
               <td>
@@ -38,9 +38,9 @@
                 <?php echo $pecah['nomer_meja']; ?>
               </td>
               <td>
-                <span class="badge badge-info">
+                <strong>
                   <?php echo $pecah['status_pesanan']; ?>
-                </span>
+                </strong>
               </td>
               <td>
                 <a href="index.php?module=detail_pesanan&id_pemesanan=<?php echo $pecah['id_pemesanan']; ?>" class="btn btn-info">Detail</a>
